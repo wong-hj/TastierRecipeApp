@@ -1,17 +1,17 @@
-//
-//  TastierApp.swift
-//  Tastier
-//
-//  Created by WONG HORNG JUN on 27/12/2022.
-//
 
 import SwiftUI
+import Firebase
 
 @main
 struct TastierApp: App {
+    
+    init(){
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }
