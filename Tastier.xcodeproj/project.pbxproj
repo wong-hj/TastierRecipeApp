@@ -20,6 +20,9 @@
 		41EB8B09295A8BFF00542D66 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41EB8B07295A8BFF00542D66 /* OFL.txt */; };
 		41EB8B0F295A911500542D66 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB8B0E295A911400542D66 /* RegisterView.swift */; };
 		41EB8B11295A981A00542D66 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB8B10295A981A00542D66 /* LoginView.swift */; };
+		98057860295C87B300C8AA3B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805785F295C87B300C8AA3B /* Recipe.swift */; };
+		98057862295C87BC00C8AA3B /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */; };
+		98057864295C882D00C8AA3B /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057863295C882D00C8AA3B /* AddRecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		41EB8B0B295A8EF900542D66 /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
 		41EB8B0E295A911400542D66 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		41EB8B10295A981A00542D66 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9805785F295C87B300C8AA3B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = ../../../TastierRecipeApp_backup/Tastier/Models/Recipe.swift; sourceTree = "<group>"; };
+		98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRecipeViewModel.swift; path = ../../../TastierRecipeApp_backup/Tastier/ViewModels/AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		98057863295C882D00C8AA3B /* AddRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRecipeView.swift; path = ../../../TastierRecipeApp_backup/Tastier/Views/AddRecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +77,11 @@
 		41EB8AEB295A7C7800542D66 /* Tastier */ = {
 			isa = PBXGroup;
 			children = (
+				9805785E295C878600C8AA3B /* ViewModels */,
+				9805785D295C878100C8AA3B /* Models */,
 				41EB8B05295A8BF000542D66 /* fonts */,
 				41EB8AEC295A7C7800542D66 /* TastierApp.swift */,
-				41EB8AEE295A7C7800542D66 /* ContentView.swift */,
-				41EB8B03295A845300542D66 /* WelcomeView.swift */,
-				41EB8B0E295A911400542D66 /* RegisterView.swift */,
-				41EB8B10295A981A00542D66 /* LoginView.swift */,
+				9805785B295C876600C8AA3B /* Views */,
 				41EB8AF0295A7C7A00542D66 /* Assets.xcassets */,
 				41EB8AFA295A80E300542D66 /* GoogleService-Info.plist */,
 				41EB8B0A295A8C6A00542D66 /* Info.plist */,
@@ -101,6 +106,34 @@
 				41EB8B0B295A8EF900542D66 /* Montserrat.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		9805785B295C876600C8AA3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98057863295C882D00C8AA3B /* AddRecipeView.swift */,
+				41EB8AEE295A7C7800542D66 /* ContentView.swift */,
+				41EB8B03295A845300542D66 /* WelcomeView.swift */,
+				41EB8B0E295A911400542D66 /* RegisterView.swift */,
+				41EB8B10295A981A00542D66 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9805785D295C878100C8AA3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9805785F295C87B300C8AA3B /* Recipe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9805785E295C878600C8AA3B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +218,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				41EB8AEF295A7C7800542D66 /* ContentView.swift in Sources */,
+				98057862295C87BC00C8AA3B /* AddRecipeViewModel.swift in Sources */,
+				98057864295C882D00C8AA3B /* AddRecipeView.swift in Sources */,
 				41EB8B0F295A911500542D66 /* RegisterView.swift in Sources */,
 				41EB8B04295A845300542D66 /* WelcomeView.swift in Sources */,
+				98057860295C87B300C8AA3B /* Recipe.swift in Sources */,
 				41EB8B11295A981A00542D66 /* LoginView.swift in Sources */,
 				41EB8AED295A7C7800542D66 /* TastierApp.swift in Sources */,
 			);

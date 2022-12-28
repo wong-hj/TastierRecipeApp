@@ -16,6 +16,7 @@ struct RegisterView: View {
     @State var cfmPassword = ""
     @State var registerSucceed = false
     @State var emptyField = false
+    @State var errorAlert = false
     @State var errorText = ""
     //@State var unmatchPass = false
     
