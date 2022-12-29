@@ -11,9 +11,10 @@ struct TastierApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //WelcomeView()
-            AddRecipeView()
+            ContentView()
                 .environmentObject(dataManager)
+            //AddRecipeView()
+                //.environmentObject(dataManager)
         }
     }
 }

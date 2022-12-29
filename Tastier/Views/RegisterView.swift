@@ -124,7 +124,7 @@ struct RegisterView: View {
                     })
                     .alert(isPresented: $errorAlert, content: {
                         // Present an alert if registration is successful
-                        Alert(title: Text("Success"), message: Text(errorText), dismissButton: .default(Text("OK")))
+                        Alert(title: Text("Error"), message: Text(errorText), dismissButton: .default(Text("OK")))
                     })
                     
 //                    .alert(isPresented: $emptyField, content: {
