@@ -4,13 +4,34 @@ import Firebase
 
 struct LoginView: View {
     
+   
+    
     @State var email = ""
     @State var password = ""
     @State var toContentView = false
     
     var body: some View {
-        NavigationView {
+        
+        if toContentView {
+            ContentView()
+            //ContentView(dataManager: AuthViewModel())
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
+        //NavigationView {
             VStack {
+                
+                Image("vege")
+                    .resizable()
+                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .clipShape(Circle())
+                    .offset(x: 150, y: -30)
+                
                 Group {
                     Text("Welcome to Tastier.")
                         .foregroundColor(.gray)
@@ -68,18 +89,36 @@ struct LoginView: View {
                     
                 })
                 
+                
                 // To Content View
-                NavigationLink(
-                    destination: ContentView(),
-                    isActive: $toContentView) {
-                    EmptyView()
-                }
+//                NavigationLink(
+//                    destination: ContentView(),
+//                    isActive: $toContentView) {
+//                    EmptyView()
+//                }
                 
                 Spacer()
+                
+//                Group {
+//                    Spacer()
+//                    HStack {
+//                        Text("Do not have an account?")
+//
+//                        // link to proceed to the login page
+//                        NavigationLink(
+//                            destination: RegisterView(),
+//                            label: {
+//                                Text("Register")
+//                        })
+//                    }
+//                }
             }
             .padding()
-        }
+        //}
+//        .navigationBarBackButtonHidden(true)
+//        .navigationBarHidden(true)
     }
+    
     
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
@@ -88,6 +127,7 @@ struct LoginView: View {
             } else {
                 print("Success")
                 toContentView = true
+                
             }
         }
     }

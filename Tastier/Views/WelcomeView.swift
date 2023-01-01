@@ -50,7 +50,7 @@ struct WelcomeView: View {
                         Spacer()
                         
                             VStack{
-                                NavigationLink(destination: RegisterView(), isActive: $isRegisterLinkActive) {
+                                NavigationLink(destination: RegisterView(dataManager: AuthViewModel()), isActive: $isRegisterLinkActive) {
                                     Button("Sign Up") {
                                         self.isRegisterLinkActive = true
                                     }

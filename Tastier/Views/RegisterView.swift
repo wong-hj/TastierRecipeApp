@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct RegisterView: View {
+    @ObservedObject var dataManager: AuthViewModel
     
     @State var email = ""
     @State var password = ""
@@ -132,20 +133,20 @@ struct RegisterView: View {
 //                        Alert(title: Text("Error"), message: Text("Please fill in all fields!"), dismissButton: .default(Text("OK")))
 //                    })
                     
-                    Group {
-                        Spacer()
-                        HStack {
-                            Text("Already have an account?")
-
-                            // link to proceed to the login page
-                            NavigationLink(
-                                destination: LoginView(),
-                                label: {
-                                    Text("Login")
-                            })
-                        }
-                    }
-                    
+//                    Group {
+//                        Spacer()
+//                        HStack {
+//                            Text("Already have an account?")
+//
+//                            // link to proceed to the login page
+//                            NavigationLink(
+//                                destination: LoginView(),
+//                                label: {
+//                                    Text("Login")
+//                            })
+//                        }
+//                    }
+                    Spacer()
 
                     
                 }
@@ -153,12 +154,19 @@ struct RegisterView: View {
             }
             .navigationTitle("Register")
         }
+//        .navigationBarHidden(true)
+//        .navigationBarBackButtonHidden(true)
     }
     
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+            } else {
+                let uid = Auth.auth().currentUser?.uid
+                
+            
+                dataManager.addUser(email: email, uid: uid!, username: username)
             }
         }
     }
@@ -166,6 +174,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(dataManager: AuthViewModel())
     }
 }
