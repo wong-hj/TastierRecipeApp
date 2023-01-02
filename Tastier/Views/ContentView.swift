@@ -17,7 +17,7 @@ struct ContentView: View {
                         }
 
                     // Second tab
-                    RecipeView(dataManager: RecipeViewModel())
+                    RecipeView(category: .constant(""))
                         .tabItem {
                             Image(systemName: "book.fill")
                                 .foregroundColor(.black)
@@ -25,7 +25,7 @@ struct ContentView: View {
                         //.environmentObject(RecipeViewModel())
 
                     // Third tab
-                    CategoryView()
+                    PersonalRecipeView()
                         .tabItem {
                             Image(systemName: "square.grid.2x2")
                             

@@ -33,6 +33,10 @@
 		982ED1102961A1FF0082B740 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED10F2961A1FF0082B740 /* SDWebImageSwiftUI */; };
 		982ED1122961B5390082B740 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1112961B5390082B740 /* CategoryView.swift */; };
 		982ED1142961B93C0082B740 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1132961B93C0082B740 /* LandingView.swift */; };
+		982ED11629629BD50082B740 /* PersonalRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11529629BD50082B740 /* PersonalRecipeView.swift */; };
+		982ED11829629CE20082B740 /* PersonalRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */; };
+		982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1192962DCB60082B740 /* UpdateRecipeView.swift */; };
+		982ED11C296332610082B740 /* UpdateRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */; };
 		98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF5296016390025AA56 /* AuthViewModel.swift */; };
 		98BE3DF8296016780025AA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF7296016780025AA56 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +65,10 @@
 		982ED107296164930082B740 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		982ED1112961B5390082B740 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		982ED1132961B93C0082B740 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		982ED11529629BD50082B740 /* PersonalRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecipeView.swift; sourceTree = "<group>"; };
+		982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecipeViewModel.swift; sourceTree = "<group>"; };
+		982ED1192962DCB60082B740 /* UpdateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecipeView.swift; sourceTree = "<group>"; };
+		982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecipeViewModel.swift; sourceTree = "<group>"; };
 		98BE3DF5296016390025AA56 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		98BE3DF7296016780025AA56 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +154,8 @@
 				982ED107296164930082B740 /* ImagePickerView.swift */,
 				982ED1112961B5390082B740 /* CategoryView.swift */,
 				982ED1132961B93C0082B740 /* LandingView.swift */,
+				982ED11529629BD50082B740 /* PersonalRecipeView.swift */,
+				982ED1192962DCB60082B740 /* UpdateRecipeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 				98057867295D5AF900C8AA3B /* RecipeViewModel.swift */,
 				9805786B295DA1E600C8AA3B /* DetailViewModel.swift */,
 				98BE3DF5296016390025AA56 /* AuthViewModel.swift */,
+				982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */,
+				982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -267,17 +279,21 @@
 				98057862295C87BC00C8AA3B /* AddRecipeViewModel.swift in Sources */,
 				98057864295C882D00C8AA3B /* AddRecipeView.swift in Sources */,
 				982ED108296164930082B740 /* ImagePickerView.swift in Sources */,
+				982ED11C296332610082B740 /* UpdateRecipeViewModel.swift in Sources */,
+				982ED11829629CE20082B740 /* PersonalRecipeViewModel.swift in Sources */,
 				41EB8B0F295A911500542D66 /* RegisterView.swift in Sources */,
 				982ED1142961B93C0082B740 /* LandingView.swift in Sources */,
 				982ED1122961B5390082B740 /* CategoryView.swift in Sources */,
 				9805786A295DA0C600C8AA3B /* DetailView.swift in Sources */,
 				98BE3DF8296016780025AA56 /* User.swift in Sources */,
+				982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */,
 				41EB8B04295A845300542D66 /* WelcomeView.swift in Sources */,
 				9805786C295DA1E600C8AA3B /* DetailViewModel.swift in Sources */,
 				98057860295C87B300C8AA3B /* Recipe.swift in Sources */,
 				41EB8B11295A981A00542D66 /* LoginView.swift in Sources */,
 				98057868295D5AF900C8AA3B /* RecipeViewModel.swift in Sources */,
 				98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */,
+				982ED11629629BD50082B740 /* PersonalRecipeView.swift in Sources */,
 				41EB8AED295A7C7800542D66 /* TastierApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

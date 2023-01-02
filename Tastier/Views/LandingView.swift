@@ -7,6 +7,11 @@ struct LandingView: View {
     @State var searchText = ""
     @ObservedObject var dataManager = RecipeViewModel()
     @State var categoryIcon = ["dessert", "western", "fried", "beverage", "eastern"]
+    @State var isShow = false
+    
+    init() {
+        dataManager.fetchRecipes(category: "All")
+    }
     
     var body: some View {
         NavigationView {
@@ -21,15 +26,18 @@ struct LandingView: View {
                         HStack {
                             ForEach (categoryIcon, id: \.self) {icon in
                                 VStack {
-                                    Image(icon)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width:50)
-                                        .padding([.top, .bottom], 15)
-                                        .padding([.leading, .trailing], 5)
-                                        .background(.yellow)
-                                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                    NavigationLink(destination: RecipeView(category: .constant(icon.capitalized))) {
                                     
+                                        Image(icon)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width:50)
+                                                .padding([.top, .bottom], 15)
+                                                .padding([.leading, .trailing], 5)
+                                                .background(.yellow)
+                                                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+                                
+                                    }
                                     Text(icon.capitalized)
                                         .font(Font.system(size: 14))
                                 }
@@ -47,31 +55,32 @@ struct LandingView: View {
                             TabView{
                                 ForEach(dataManager.recipes, id: \.id) { recipe in
                                     
-                                    if recipe.rating > 3.00 {
-                                        Group {
-                                            
-                                            
-                                            WebImage(url: URL(string: recipe.imageURL))
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
+                                    if recipe.rating > 1.00 {
+                                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(recordId: recipe.docid))) {
+                                            Group {
                                                 
-                                        }
-                                        .frame(height: 250)
-                                        .overlay(
-                                            VStack {
+                                                WebImage(url: URL(string: recipe.imageURL))
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
                                                 
-                                                
-                                                Text("***\(recipe.name)***\nBy **\(recipe.username)**")
-                                                    .padding()
-                                                    .background(.black.opacity(0.8))
-                                                    .foregroundColor(.orange)
-                                                    .cornerRadius(10)
-                                                    .padding()
-                                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                                Spacer()
                                             }
-                                            
-                                        )
+                                            .frame(height: 250)
+                                            .overlay(
+                                                VStack {
+                                                    
+                                                    
+                                                    Text("***\(recipe.name)***\nBy **\(recipe.username)**")
+                                                        .padding()
+                                                        .background(.black.opacity(0.8))
+                                                        .foregroundColor(.orange)
+                                                        .cornerRadius(10)
+                                                        .padding()
+                                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                                    Spacer()
+                                                }
+                                                
+                                            )
+                                        }
                                     }
                                     
                                         

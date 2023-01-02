@@ -97,7 +97,7 @@ struct DetailView: View {
                 .edgesIgnoringSafeArea(.all)
                     
                 //}
-                .navigationTitle("Recipe Detail")
+                .navigationTitle("")
                 .navigationBarHidden(true)
                 
                 //.navigationBarBackButtonHidden(true)

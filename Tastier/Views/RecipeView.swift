@@ -5,8 +5,21 @@ import SDWebImageSwiftUI
 
 struct RecipeView: View {
     //@EnvironmentObject var dataManager: RecipeViewModel
-    @ObservedObject var dataManager: RecipeViewModel
+    @ObservedObject var dataManager = RecipeViewModel()
     @State var toAddRecipeView = false
+    @Binding var category: String
+    
+    init(category: Binding<String>) {
+        
+        self._category = category
+            
+        if category.wrappedValue.isEmpty {
+            dataManager.fetchRecipes(category: "All")
+            
+        } else {
+            dataManager.fetchRecipes(category: category.wrappedValue)
+        }
+    }
     
     var body: some View {
  
@@ -34,11 +47,16 @@ struct RecipeView: View {
                                     .sheet(isPresented: $toAddRecipeView) {
                                         AddRecipeView(dataManager: AddRecipeViewModel())
                                     }
+                                
+                                
                             }
                             
+                           
                             Text("Find the perfect recipe!")
                                 .foregroundColor(.gray)
                                 .padding(.bottom, 10)
+                      
+                            
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -97,13 +115,28 @@ struct RecipeView: View {
 
                     }
                     .padding()
-                    .navigationTitle("Recipes")
+                    .navigationTitle("")
                     .accentColor(.black)
                     .navigationBarHidden(true)
+                    
+//                    VStack{
+//                        List() {
+//                            Text("Dessert")
+//                            Text("Dessert")
+//                        }
+//                        .frame(width:200)
+//                        .listStyle(.plain)
+//                        .offset(x: 70, y: 90)
+//                        //.hidden()
+//                    }
+                    
                 }
+                
             }
+            //.navigationBarHidden(false)
 
         }
+        //.navigationBarHidden(false)
         //.accentColor(.black)
 
     }
@@ -111,7 +144,7 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView(dataManager: RecipeViewModel())
+        RecipeView(category: .constant("Dessert"))
             //.observedObject(RecipeViewModel())
     }
 }
