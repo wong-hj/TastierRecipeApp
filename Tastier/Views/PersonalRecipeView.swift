@@ -19,79 +19,91 @@ struct PersonalRecipeView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                List {
-                    
-                    ForEach(dataManager.recipes, id: \.id) { recipe in
+                if dataManager.recipes.count > 0 {
+                    List {
                         
-                        ZStack {
-                            NavigationLink(destination: UpdateRecipeView(dataManager: UpdateRecipeViewModel(documentid: recipe.docid))) { EmptyView() }.opacity(0)
+                        ForEach(dataManager.recipes, id: \.id) { recipe in
                             
-                            HStack{
-                                
-                                WebImage(url: URL(string: recipe.imageURL))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 100)
-                                
-                                VStack(alignment: .leading) {
+                            ZStack {
+                                NavigationLink(destination: UpdateRecipeView(dataManager: UpdateRecipeViewModel(documentid: recipe.docid))) {
+                                    EmptyView()
                                     
-                                    Text(recipe.name)
-                                        .font(.title2)
-                                        .fontWeight(.light)
-                                    HStack(){
-                                        Group {
-                                            HStack{
-                                                Image(systemName: "hand.thumbsup")
-                                                Text(String(recipe.rating))
-                                            }
-                                            .padding(3)
-                                            .frame(width: 75)
-                                            .background(Rectangle().fill(.orange))
-                                            .cornerRadius(5)
-                                            
-                                            Spacer()
-                                            
-                                            HStack{
-                                                Image(systemName: "timer")
-                                                Text("\(String(recipe.time)) min")
-                                            }
-                                            .padding(3)
-                                            .frame(width: 75)
-                                            .background(Rectangle().fill(.orange))
-                                            .cornerRadius(5)
-                                            
-                                            Spacer()
-                                            
-                                            HStack{
-                                                Image(systemName: "flame")
-                                                Text(recipe.difficulty)
-                                            }
-                                            .padding(3)
-                                            
-                                            .frame(width: 75)
-                                            .background(Rectangle().fill(.orange))
-                                            .cornerRadius(5)
-                                        }
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 13))
+                                }.opacity(0)
+                                
+                                HStack{
+                                    
+                                    WebImage(url: URL(string: recipe.imageURL))
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100)
+                                    
+                                    VStack(alignment: .leading) {
                                         
+                                        Text(recipe.name)
+                                            .font(.title2)
+                                            .fontWeight(.light)
+                                        HStack(){
+                                            Group {
+                                                HStack{
+                                                    Image(systemName: "hand.thumbsup")
+                                                    Text(String(recipe.rating))
+                                                }
+                                                .padding(3)
+                                                .frame(width: 75)
+                                                .background(Rectangle().fill(.orange))
+                                                .cornerRadius(5)
+                                                
+                                                Spacer()
+                                                
+                                                HStack{
+                                                    Image(systemName: "timer")
+                                                    Text("\(String(recipe.time)) min")
+                                                }
+                                                .padding(3)
+                                                .frame(width: 75)
+                                                .background(Rectangle().fill(.orange))
+                                                .cornerRadius(5)
+                                                
+                                                Spacer()
+                                                
+                                                HStack{
+                                                    Image(systemName: "flame")
+                                                    Text(recipe.difficulty)
+                                                }
+                                                .padding(3)
+                                                
+                                                .frame(width: 75)
+                                                .background(Rectangle().fill(.orange))
+                                                .cornerRadius(5)
+                                            }
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 13))
+                                            
+                                        }
                                     }
                                 }
-                            }
-                            .frame(height: 80)
-                            .swipeActions(edge: .trailing) {
-                                Button {
-                                    dataManager.deleteRecipe(documentID: recipe.docid)
-                                } label: {
-                                    Image(systemName: "trash")
+                                .frame(height: 80)
+                                .swipeActions(edge: .trailing) {
+                                    Button {
+                                        dataManager.deleteRecipe(documentID: recipe.docid)
+                                    } label: {
+                                        Image(systemName: "trash")
+                                    }
+                                    .tint(.red)
+                                    
                                 }
-                                .tint(.red)
-                                
                             }
                         }
                     }
+                    .listStyle(.plain)
+                    
+                } else {
+                    List {
+                        Text("No recipe has been added yet.")
+                    }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
+                
                 
                 Spacer()
                 

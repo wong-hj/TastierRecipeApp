@@ -5,19 +5,15 @@ import Firebase
 @main
 struct TastierApp: App {
     
+    //configure firebase
     init(){
         FirebaseApp.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            
-            //ContentView(dataManager: AuthViewModel())
-            //ContentView()
-                //.environmentObject(dataManager)
+            //First screen is WelcomeView()
             WelcomeView()
-            //AddRecipeView()
-                //.environmentObject(dataManager)
         }
     }
 }

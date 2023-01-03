@@ -3,7 +3,10 @@ import Foundation
 import Firebase
 
 class AuthViewModel: ObservableObject {
+    
     @Published var user: User
+    
+    @Published var listener: ListenerRegistration!
     
     init(){
         self.user = User(email: "", uid: "", username: "")
@@ -26,18 +29,20 @@ class AuthViewModel: ObservableObject {
     func fetchCurrentUser() {
         
         let uid = Auth.auth().currentUser?.uid
+        //print("USERID is \(uid)\n\n")
+        
         let db = Firestore.firestore()
 
         let docRef = db.collection("User").document(uid!)
 
-        docRef.getDocument { (document, error) in
+        listener = docRef.addSnapshotListener { (documentSnapshot, error) in
             guard error == nil else {
                 print(error?.localizedDescription ?? "")
                 return
             }
 
-            if let document = document, document.exists {
-                let data = document.data()
+            if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                let data = documentSnapshot.data()
 
                 if let data = data {
 
@@ -57,6 +62,9 @@ class AuthViewModel: ObservableObject {
     func logout() {
         do {
           try Auth.auth().signOut()
+            
+            listener.remove()
+            
           // User is signed out.
         } catch let error {
           // An error occurred while signing out.

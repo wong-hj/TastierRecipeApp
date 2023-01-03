@@ -1,7 +1,7 @@
 
-
 import SwiftUI
 import SDWebImageSwiftUI
+
 struct LandingView: View {
     
     @State var searchText = ""
@@ -55,7 +55,7 @@ struct LandingView: View {
                             TabView{
                                 ForEach(dataManager.recipes, id: \.id) { recipe in
                                     
-                                    if recipe.rating > 1.00 {
+                                    if recipe.rating > 2.00 {
                                         NavigationLink(destination: DetailView(viewModel: DetailViewModel(recordId: recipe.docid))) {
                                             Group {
                                                 
@@ -82,8 +82,6 @@ struct LandingView: View {
                                             )
                                         }
                                     }
-                                    
-                                        
                                         
                                 }
                                 
@@ -159,8 +157,7 @@ struct LandingView: View {
                 
             }
         }
-        
-        
+
     }
 
 }

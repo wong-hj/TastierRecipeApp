@@ -31,7 +31,6 @@
 		982ED10B29616D440082B740 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED10A29616D440082B740 /* FirebaseAppCheck */; };
 		982ED10D29616D5F0082B740 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED10C29616D5F0082B740 /* FirebaseStorage */; };
 		982ED1102961A1FF0082B740 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED10F2961A1FF0082B740 /* SDWebImageSwiftUI */; };
-		982ED1122961B5390082B740 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1112961B5390082B740 /* CategoryView.swift */; };
 		982ED1142961B93C0082B740 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1132961B93C0082B740 /* LandingView.swift */; };
 		982ED11629629BD50082B740 /* PersonalRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11529629BD50082B740 /* PersonalRecipeView.swift */; };
 		982ED11829629CE20082B740 /* PersonalRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */; };
@@ -42,6 +41,7 @@
 		982ED1222964202D0082B740 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1212964202D0082B740 /* EditProfileView.swift */; };
 		982ED1262964264C0082B740 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1252964264C0082B740 /* EditProfileViewModel.swift */; };
 		982ED128296437E10082B740 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED127296437E10082B740 /* RegisterViewModel.swift */; };
+		982ED12B296479390082B740 /* SwiftUITooltip in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED12A296479390082B740 /* SwiftUITooltip */; };
 		98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF5296016390025AA56 /* AuthViewModel.swift */; };
 		98BE3DF8296016780025AA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF7296016780025AA56 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +68,6 @@
 		98057869295DA0C600C8AA3B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9805786B295DA1E600C8AA3B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		982ED107296164930082B740 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
-		982ED1112961B5390082B740 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		982ED1132961B93C0082B740 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		982ED11529629BD50082B740 /* PersonalRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecipeView.swift; sourceTree = "<group>"; };
 		982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRecipeViewModel.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				982ED1102961A1FF0082B740 /* SDWebImageSwiftUI in Frameworks */,
+				982ED12B296479390082B740 /* SwiftUITooltip in Frameworks */,
 				982ED10B29616D440082B740 /* FirebaseAppCheck in Frameworks */,
 				41EB8AFE295A820500542D66 /* FirebaseAnalytics in Frameworks */,
 				41EB8B00295A820500542D66 /* FirebaseAuth in Frameworks */,
@@ -162,7 +162,6 @@
 				98057865295D4FAE00C8AA3B /* RecipeView.swift */,
 				98057869295DA0C600C8AA3B /* DetailView.swift */,
 				982ED107296164930082B740 /* ImagePickerView.swift */,
-				982ED1112961B5390082B740 /* CategoryView.swift */,
 				982ED1132961B93C0082B740 /* LandingView.swift */,
 				982ED11529629BD50082B740 /* PersonalRecipeView.swift */,
 				982ED1192962DCB60082B740 /* UpdateRecipeView.swift */,
@@ -227,6 +226,7 @@
 				982ED10A29616D440082B740 /* FirebaseAppCheck */,
 				982ED10C29616D5F0082B740 /* FirebaseStorage */,
 				982ED10F2961A1FF0082B740 /* SDWebImageSwiftUI */,
+				982ED12A296479390082B740 /* SwiftUITooltip */,
 			);
 			productName = Tastier;
 			productReference = 41EB8AE9295A7C7800542D66 /* Tastier.app */;
@@ -259,6 +259,7 @@
 			packageReferences = (
 				41EB8AFC295A820500542D66 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				982ED10E2961A1FF0082B740 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				982ED129296479390082B740 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */,
 			);
 			productRefGroup = 41EB8AEA295A7C7800542D66 /* Products */;
 			projectDirPath = "";
@@ -299,7 +300,6 @@
 				982ED1262964264C0082B740 /* EditProfileViewModel.swift in Sources */,
 				41EB8B0F295A911500542D66 /* RegisterView.swift in Sources */,
 				982ED1142961B93C0082B740 /* LandingView.swift in Sources */,
-				982ED1122961B5390082B740 /* CategoryView.swift in Sources */,
 				9805786A295DA0C600C8AA3B /* DetailView.swift in Sources */,
 				98BE3DF8296016780025AA56 /* User.swift in Sources */,
 				982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */,
@@ -535,6 +535,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		982ED129296479390082B740 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quassum/SwiftUI-Tooltip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -567,6 +575,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 982ED10E2961A1FF0082B740 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		982ED12A296479390082B740 /* SwiftUITooltip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 982ED129296479390082B740 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */;
+			productName = SwiftUITooltip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

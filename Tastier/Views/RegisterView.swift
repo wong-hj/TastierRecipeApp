@@ -1,9 +1,3 @@
-//
-//  RegisterView.swift
-//  Tastier
-//
-//  Created by WONG HORNG JUN on 27/12/2022.
-//
 
 import SwiftUI
 import Firebase
@@ -19,6 +13,9 @@ struct RegisterView: View {
     @State var emptyField = false
     @State var errorAlert = false
     @State var errorText = ""
+    @State var activeAlert = ""
+    @State var showAlert = false
+    
     //@State var unmatchPass = false
     
     var body: some View {
@@ -28,7 +25,6 @@ struct RegisterView: View {
                     Text("Fill in the Fields with Relevant Details.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 10)
-                    
                     
                     Group{
                         Text("Username")
@@ -74,7 +70,7 @@ struct RegisterView: View {
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        TextField("", text: $cfmPassword)
+                        SecureField("", text: $cfmPassword)
                             .padding(8)
                             .background()
                             .foregroundColor(.black)
@@ -88,18 +84,27 @@ struct RegisterView: View {
                     Button(action: {
                         
                         if (username.isEmpty || email.isEmpty || password.isEmpty || cfmPassword.isEmpty) {
-                            emptyField = true
                             
+                            activeAlert = "empty"
+                            
+                        } else if (password != cfmPassword) {
+                            
+                            activeAlert = "unmatch"
                         } else {
                             // save user data in Firebase
-                            registerSucceed = true
+                            
                             register()
+                            
+                            if self.errorText.isEmpty {
+                                activeAlert = "success"
+                                
+                            } else {
+                                activeAlert = "error"
+                            }
 
                         }
                         
-                        if(errorText != "") {
-                            errorAlert = true
-                        }
+                        showAlert = true
 
                     }, label: {
                         
@@ -115,33 +120,27 @@ struct RegisterView: View {
                         .padding(.top, 10)
                             
                     })
-                    .alert(isPresented: $registerSucceed, content: {
+                    .alert(isPresented: $showAlert, content: {
                         // Present an alert if registration is successful
-                        Alert(title: Text("Success"), message: Text("Registered Successfully!"), dismissButton: .default(Text("OK")))
+                        switch activeAlert {
+                            case "empty":
+                                return Alert(title: Text("Error"), message: Text("Please fill in all fields."), dismissButton: .default(Text("OK")))
+                            
+                            case "unmatch":
+                                return Alert(title: Text("Error"), message: Text("Password Do Not Match."), dismissButton: .default(Text("OK")))
+                            
+                            case "error":
+                                return Alert(title: Text("Error"), message: Text(errorText), dismissButton: .default(Text("OK")))
+                            
+                            case "success":
+                                return Alert(title: Text("Success"), message: Text("Registered Successfully!"), dismissButton: .default(Text("OK")))
+
+                            default:
+                        
+                                return Alert(title: Text("Error"), message: Text("Something went wrong."), dismissButton: .default(Text("OK")))
+                        }
                     })
-                    .alert(isPresented: $errorAlert, content: {
-                        // Present an alert if registration is successful
-                        Alert(title: Text("Error"), message: Text(errorText), dismissButton: .default(Text("OK")))
-                    })
-                    
-//                    .alert(isPresented: $emptyField, content: {
-//                        // Present an alert
-//                        Alert(title: Text("Error"), message: Text("Please fill in all fields!"), dismissButton: .default(Text("OK")))
-//                    })
-                    
-//                    Group {
-//                        Spacer()
-//                        HStack {
-//                            Text("Already have an account?")
-//
-//                            // link to proceed to the login page
-//                            NavigationLink(
-//                                destination: LoginView(),
-//                                label: {
-//                                    Text("Login")
-//                            })
-//                        }
-//                    }
+
                     Spacer()
 
                     
@@ -150,15 +149,20 @@ struct RegisterView: View {
             }
             .navigationTitle("Register")
         }
-//        .navigationBarHidden(true)
-//        .navigationBarBackButtonHidden(true)
     }
     
+    //Register function ***LOOK MORE INTO IT*** can put into registerviewmodel
     func register() {
+        
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
+            
+            if let error = error {
+                
+                errorText = error.localizedDescription
+                
+                
             } else {
+                
                 let uid = Auth.auth().currentUser?.uid
                 
             

@@ -80,8 +80,6 @@ struct EditProfileView: View {
                 
                 showAlert = true
             
-                
-                
             }, label: {
                 
                 HStack{

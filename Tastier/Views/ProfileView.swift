@@ -39,14 +39,22 @@ struct ProfileView: View {
  
                 }
                 
-                Image(systemName: "person")
+                Image("user")
+                    .font(.system(size: 0))
                     .padding()
-                    .background(.blue)
+                    .background(.white)
                     .clipShape(Circle())
-                Text("June".uppercased())
+                    .overlay(
+                            Circle().stroke(.black, lineWidth: 2)
+                        )
+                    
+                Text(auth.user.username.uppercased())
                     .font(.system(size: 25))
                     .fontWeight(.semibold)
-                Text("wonghorngjun@hotmail. com")
+                
+                
+                Text(auth.user.email)
+                
             }
             .padding()
             .frame(width: 350)
@@ -60,25 +68,33 @@ struct ProfileView: View {
                 .foregroundColor(.orange)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
-            List() {
-                ForEach(dataManager.recipes, id: \.id) { recipe in
-                    
-                    HStack{
+            
+            if dataManager.recipes.count > 0 {
+                List() {
+                    ForEach(dataManager.recipes, id: \.id) { recipe in
                         
-                        WebImage(url: URL(string: recipe.imageURL))
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100)
-      
-                        Text(recipe.name)
-                            .font(.title2)
-                            .fontWeight(.light)
+                        HStack{
+                            
+                            WebImage(url: URL(string: recipe.imageURL))
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100)
+          
+                            Text(recipe.name)
+                                .font(.title2)
+                                .fontWeight(.light)
 
+                        }
+                        .frame(height: 80)
                     }
-                    .frame(height: 80)
                 }
+                .listStyle(.plain)
+                
+
+            } else {
+                Text("No recipe has been added yet.")
+                    .padding()
             }
-            .listStyle(.plain)
             
             Spacer()
             
@@ -98,9 +114,9 @@ struct ProfileView: View {
                             
                     }
                     .foregroundColor(.white)
-                    .padding()
+                    .padding(10)
                     .background(.red)
-                    .cornerRadius(40)
+                    .cornerRadius(30)
                     .padding()
                     
                 }

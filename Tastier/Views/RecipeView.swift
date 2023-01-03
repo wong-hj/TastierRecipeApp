@@ -4,7 +4,6 @@ import Firebase
 import SDWebImageSwiftUI
 
 struct RecipeView: View {
-    //@EnvironmentObject var dataManager: RecipeViewModel
     @ObservedObject var dataManager = RecipeViewModel()
     @State var toAddRecipeView = false
     @Binding var category: String
@@ -45,13 +44,11 @@ struct RecipeView: View {
                                     }
                                     .padding(.trailing, 10)
                                     .sheet(isPresented: $toAddRecipeView) {
-                                        AddRecipeView(dataManager: AddRecipeViewModel())
+                                        AddRecipeView()
                                     }
-                                
                                 
                             }
                             
-                           
                             Text("Find the perfect recipe!")
                                 .foregroundColor(.gray)
                                 .padding(.bottom, 10)
@@ -117,34 +114,17 @@ struct RecipeView: View {
                     .padding()
                     .navigationTitle("")
                     .accentColor(.black)
-                    .navigationBarHidden(true)
-                    
-//                    VStack{
-//                        List() {
-//                            Text("Dessert")
-//                            Text("Dessert")
-//                        }
-//                        .frame(width:200)
-//                        .listStyle(.plain)
-//                        .offset(x: 70, y: 90)
-//                        //.hidden()
-//                    }
                     
                 }
                 
             }
-            //.navigationBarHidden(false)
-
+            
         }
-        //.navigationBarHidden(false)
-        //.accentColor(.black)
-
     }
 }
 
-//struct RecipeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RecipeView(category: .constant("Dessert"))
-//            //.observedObject(RecipeViewModel())
-//    }
-//}
+struct RecipeView_Previews: PreviewProvider {
+    static var previews: some View {
+        RecipeView(category: .constant("Dessert"))
+    }
+}

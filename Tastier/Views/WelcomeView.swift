@@ -1,9 +1,3 @@
-//
-//  WelcomeView.swift
-//  Tastier
-//
-//  Created by WONG HORNG JUN on 27/12/2022.
-//
 
 import SwiftUI
 
@@ -22,15 +16,13 @@ struct WelcomeView: View {
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
                         .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                        .opacity(1.0)
-                    
+  
                     //add black background
                     Color.black
                         .ignoresSafeArea()
                         .opacity(0.6)
                     
                     //Text
-                    
                     VStack{
                         Text("Bon Appetit")
                             .font(Font.custom(
@@ -50,6 +42,7 @@ struct WelcomeView: View {
                         Spacer()
                         
                             VStack{
+                                //Register button
                                 NavigationLink(destination: RegisterView(), isActive: $isRegisterLinkActive) {
                                     Button("Sign Up") {
                                         self.isRegisterLinkActive = true
@@ -63,6 +56,7 @@ struct WelcomeView: View {
                                 
                                 }
                                 
+                                //Login button
                                 NavigationLink(destination: LoginView(), isActive: $isLoginLinkActive) {
                                     Button("Login") {
                                         

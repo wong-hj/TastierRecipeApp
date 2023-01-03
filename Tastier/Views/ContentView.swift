@@ -3,8 +3,6 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    //@ObservedObject var dataManager: AuthViewModel
-    @State var image: UIImage?
     var body: some View {
         NavigationView {
             TabView {
@@ -22,37 +20,31 @@ struct ContentView: View {
                             Image(systemName: "book.fill")
                                 .foregroundColor(.black)
                         }
-                        //.environmentObject(RecipeViewModel())
-
+                    
                     // Third tab
                     PersonalRecipeView()
                         .tabItem {
                             Image(systemName: "square.grid.2x2")
-                            
                         }
                     
+                    // Fourth tab
                     ProfileView()
                         .tabItem {
                             Image(systemName: "person.circle.fill")
                             
                         }
                 }
-
-                
-                
+    
             }
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         
-        
-        //.accentColor(.orange)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        //ContentView(dataManager: AuthViewModel())
         ContentView()
     }
 }

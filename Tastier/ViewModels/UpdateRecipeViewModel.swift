@@ -18,7 +18,7 @@ class UpdateRecipeViewModel: ObservableObject {
         let db = Firestore.firestore()
 
         let docRef = db.collection("Recipe").document(documentid)
-        print("DOCUMENT ID IS \(documentid)")
+        //print("DOCUMENT ID IS \(documentid)")
         docRef.getDocument { (document, error) in
             guard error == nil else {
                 print(error?.localizedDescription ?? "")
