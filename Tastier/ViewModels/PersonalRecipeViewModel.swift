@@ -14,8 +14,7 @@ class PersonalRecipeViewModel: ObservableObject {
     func fetchPersonalRecipe() {
         let uid = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
-        let ref = db.collection("Recipe")
-        //let ref = db.collection("Recipe").whereField("uid", isEqualTo: uid ?? "")
+        let ref = db.collection("Recipe").whereField("uid", isEqualTo: uid ?? "")
         ref.addSnapshotListener { snapshot, error in
             guard error == nil else {
                 print(error?.localizedDescription ?? "")

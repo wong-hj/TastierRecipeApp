@@ -4,7 +4,7 @@ import Firebase
 
 @main
 struct TastierApp: App {
-    @StateObject var dataManager = AddRecipeViewModel()
+    
     init(){
         FirebaseApp.configure()
     }
@@ -13,9 +13,9 @@ struct TastierApp: App {
         WindowGroup {
             
             //ContentView(dataManager: AuthViewModel())
-            ContentView()
+            //ContentView()
                 //.environmentObject(dataManager)
-            //WelcomeView()
+            WelcomeView()
             //AddRecipeView()
                 //.environmentObject(dataManager)
         }

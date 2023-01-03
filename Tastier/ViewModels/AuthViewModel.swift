@@ -10,18 +10,18 @@ class AuthViewModel: ObservableObject {
         fetchCurrentUser()
     }
     
-    func addUser(email : String, uid : String, username : String) {
-        let db = Firestore.firestore()
-        let ref = db.collection("User").document(uid)
-        ref.setData(["email": email, "uid" : uid, "username" : username]) { error in
-            
-            if let error = error {
-                print("something went wrong, error: \(error)")
-                
-            }
-            
-        }
-    }
+//    func addUser(email : String, uid : String, username : String) {
+//        let db = Firestore.firestore()
+//        let ref = db.collection("User").document(uid)
+//        ref.setData(["email": email, "uid" : uid, "username" : username]) { error in
+//            
+//            if let error = error {
+//                print("something went wrong, error: \(error)")
+//                
+//            }
+//            
+//        }
+//    }
     
     func fetchCurrentUser() {
         
@@ -52,5 +52,15 @@ class AuthViewModel: ObservableObject {
 
             }
        }
+    }
+    
+    func logout() {
+        do {
+          try Auth.auth().signOut()
+          // User is signed out.
+        } catch let error {
+          // An error occurred while signing out.
+            print("something went wrong, error: \(error)")
+        }
     }
 }

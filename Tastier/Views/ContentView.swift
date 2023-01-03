@@ -31,7 +31,7 @@ struct ContentView: View {
                             
                         }
                     
-                    Text("Third tab")
+                    ProfileView()
                         .tabItem {
                             Image(systemName: "person.circle.fill")
                             

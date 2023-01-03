@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct RegisterView: View {
-    @ObservedObject var dataManager: AuthViewModel
+    @ObservedObject var dataManager = RegisterViewModel()
     
     @State var email = ""
     @State var password = ""
@@ -25,10 +25,6 @@ struct RegisterView: View {
         NavigationView {
             ZStack {
                 VStack {
-//                        Image("Queen")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 250, height: 250)
                     Text("Fill in the Fields with Relevant Details.")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 10)
@@ -174,6 +170,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(dataManager: AuthViewModel())
+        RegisterView()
     }
 }

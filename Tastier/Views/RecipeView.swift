@@ -142,9 +142,9 @@ struct RecipeView: View {
     }
 }
 
-struct RecipeView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeView(category: .constant("Dessert"))
-            //.observedObject(RecipeViewModel())
-    }
-}
+//struct RecipeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeView(category: .constant("Dessert"))
+//            //.observedObject(RecipeViewModel())
+//    }
+//}
