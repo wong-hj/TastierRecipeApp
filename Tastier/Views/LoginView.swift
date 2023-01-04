@@ -37,6 +37,8 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 TextField("", text: $email)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     .padding(8)
                     .background()
                     .foregroundColor(.black)

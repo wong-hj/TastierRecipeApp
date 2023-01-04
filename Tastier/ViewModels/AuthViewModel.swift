@@ -57,12 +57,16 @@ class AuthViewModel: ObservableObject {
 
             }
        }
+        
+        //listener.remove()
     }
     
     func logout() {
         do {
           try Auth.auth().signOut()
             
+            print("SUCCESSFULLLLLLL")
+            //let uid = ""
             listener.remove()
             
           // User is signed out.

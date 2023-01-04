@@ -26,6 +26,8 @@ struct EditProfileView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 TextField("", text: $auth.user.username)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     .padding(8)
                     .background()
                     .foregroundColor(.black)
@@ -39,6 +41,8 @@ struct EditProfileView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 TextField("", text: $auth.user.email)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
                     .padding(8)
                     .background()
                     .foregroundColor(.black)

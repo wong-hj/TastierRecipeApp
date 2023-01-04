@@ -9,6 +9,14 @@ struct ProfileView: View {
     @State var isShowSheet = false
     @State var isLoggedOut = false
     
+//    init(){
+//        auth.fetchCurrentUser()
+//    }
+    
+    init(){
+        print("THIS IS RUN!")
+    }
+    
     var body: some View {
         
         VStack{
@@ -33,9 +41,10 @@ struct ProfileView: View {
                            .foregroundColor(.black)
 
                    }
-                   .sheet(isPresented: $isShowSheet) {
-                       EditProfileView()
-                   }
+                    
+                    NavigationLink(destination: EditProfileView(), isActive: $isShowSheet) {
+                        Text("")
+                    }
  
                 }
                 

@@ -32,6 +32,8 @@ struct RegisterView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         TextField("", text: $username)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .padding(8)
                             .background()
                             .foregroundColor(.black)
@@ -45,6 +47,8 @@ struct RegisterView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         TextField("", text: $email)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
                             .padding(8)
                             .background()
                             .foregroundColor(.black)
@@ -94,17 +98,11 @@ struct RegisterView: View {
                             // save user data in Firebase
                             
                             register()
-                            
-                            if self.errorText.isEmpty {
-                                activeAlert = "success"
-                                
-                            } else {
-                                activeAlert = "error"
-                            }
 
                         }
                         
                         showAlert = true
+                        
 
                     }, label: {
                         
@@ -136,11 +134,18 @@ struct RegisterView: View {
                                 return Alert(title: Text("Success"), message: Text("Registered Successfully!"), dismissButton: .default(Text("OK")))
 
                             default:
-                        
+                                
                                 return Alert(title: Text("Error"), message: Text("Something went wrong."), dismissButton: .default(Text("OK")))
                         }
+                        
+                       
+                        
                     })
-
+                    .onAppear{
+                        self.activeAlert = ""
+                        self.showAlert = false
+                    }
+                    
                     Spacer()
 
                     
@@ -158,16 +163,23 @@ struct RegisterView: View {
             
             if let error = error {
                 
-                errorText = error.localizedDescription
+                self.activeAlert = "error"
+                
+                self.errorText = "\(error.localizedDescription)"
                 
                 
             } else {
                 
+                self.activeAlert = "success"
+                
                 let uid = Auth.auth().currentUser?.uid
                 
-            
                 dataManager.addUser(email: email, uid: uid!, username: username)
+                
+                
             }
+            
+           
         }
     }
 }

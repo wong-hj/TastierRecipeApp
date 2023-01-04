@@ -102,6 +102,7 @@ struct LandingView: View {
                                 .foregroundColor(.white)
                             HStack {
                                 TextField("Search", text: $searchText)
+                                    .autocapitalization(.none)
                                 
                                 Image(systemName: "magnifyingglass")
                                     .padding(.trailing, 8)

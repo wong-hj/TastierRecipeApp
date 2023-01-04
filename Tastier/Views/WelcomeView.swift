@@ -1,6 +1,6 @@
 
 import SwiftUI
-
+import Firebase
 struct WelcomeView: View {
     @State var isRegisterLinkActive = false
     @State var isLoginLinkActive = false
@@ -80,6 +80,7 @@ struct WelcomeView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+    
 }
 
 struct WelcomeView_Previews: PreviewProvider {
