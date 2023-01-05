@@ -4,10 +4,10 @@ import SDWebImageSwiftUI
 
 struct LandingView: View {
     
-    @State var searchText = ""
+    @State private var searchText = ""
     @ObservedObject var dataManager = RecipeViewModel()
-    @State var categoryIcon = ["dessert", "western", "fried", "beverage", "eastern"]
-    @State var isShow = false
+    @State private var categoryIcon = ["dessert", "western", "fried", "beverage", "eastern"]
+    @State private var isShow = false
     
     init() {
         dataManager.fetchRecipes(category: "All")
@@ -24,11 +24,11 @@ struct LandingView: View {
                             .cornerRadius(20)
                             .edgesIgnoringSafeArea(.top)
                         HStack {
-                            ForEach (categoryIcon, id: \.self) {icon in
+                            ForEach (Categories.allCases, id: \.self) {icon in
                                 VStack {
-                                    NavigationLink(destination: RecipeView(category: .constant(icon.capitalized))) {
+                                    NavigationLink(destination: RecipeView(category: .constant(icon.rawValue.capitalized))) {
                                     
-                                        Image(icon)
+                                        Image(icon.rawValue)
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width:50)
@@ -38,7 +38,7 @@ struct LandingView: View {
                                                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                                 
                                     }
-                                    Text(icon.capitalized)
+                                    Text(icon.rawValue.capitalized)
                                         .font(Font.system(size: 14))
                                 }
                             }

@@ -5,11 +5,9 @@ struct EditProfileView: View {
     @ObservedObject var dataManager = EditProfileViewModel()
     @ObservedObject var auth = AuthViewModel()
     @Environment(\.dismiss) var dismiss
-    @State var username = ""
-    @State var email = ""
-    @State var password = ""
-    @State var activeAlert = ""
-    @State var showAlert = false
+    @State private var password = ""
+    @State private var activeAlert = ""
+    @State private var showAlert = false
     
     var body: some View {
         VStack{

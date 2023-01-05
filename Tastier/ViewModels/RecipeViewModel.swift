@@ -6,12 +6,7 @@ import FirebaseStorage
 class RecipeViewModel: ObservableObject {
     @Published var recipes: [Recipe] = []
     @Published var image: UIImage?
-    //@Published var retrievedImage = []
-    
-//    init() {
-//        fetchRecipes()
-//    }
-    
+ 
     func fetchRecipes(category: String) {
         recipes.removeAll()
         let db = Firestore.firestore()
@@ -62,7 +57,6 @@ class RecipeViewModel: ObservableObject {
                         let documentId = document.documentID
                         let data = document.data()
                         
-                        //let id = data["id"] as? Int ?? 0
                         let name = data["name"] as? String ?? ""
                         let rating = data["rating"] as? Double ?? 0.0
                         let time = data["time"] as? Int ?? 0

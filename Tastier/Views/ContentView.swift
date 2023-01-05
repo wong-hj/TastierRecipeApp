@@ -11,26 +11,28 @@ struct ContentView: View {
                     LandingView()
                         .tabItem {
                             Image(systemName: "house")
-                            
+                            Text("Home")
                         }
 
                     // Second tab
                     RecipeView(category: .constant(""))
                         .tabItem {
-                            Image(systemName: "book.fill")
-                                .foregroundColor(.black)
+                            Image(systemName: "fork.knife.circle.fill")
+                            Text("Recipe")
                         }
                     
                     // Third tab
                     PersonalRecipeView()
                         .tabItem {
-                            Image(systemName: "square.grid.2x2")
+                            Image(systemName: "list.bullet.rectangle.portrait")
+                            Text("Personal Recipe")
                         }
                     
                     // Fourth tab
                     ProfileView()
                         .tabItem {
                             Image(systemName: "person.circle.fill")
+                            Text("User")
                             
                         }
                 }

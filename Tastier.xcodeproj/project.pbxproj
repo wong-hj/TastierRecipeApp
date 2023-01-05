@@ -37,13 +37,13 @@
 		982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1192962DCB60082B740 /* UpdateRecipeView.swift */; };
 		982ED11C296332610082B740 /* UpdateRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */; };
 		982ED11E296419830082B740 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11D296419830082B740 /* ProfileView.swift */; };
-		982ED1202964199B0082B740 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED11F2964199B0082B740 /* ProfileViewModel.swift */; };
 		982ED1222964202D0082B740 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1212964202D0082B740 /* EditProfileView.swift */; };
 		982ED1262964264C0082B740 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1252964264C0082B740 /* EditProfileViewModel.swift */; };
 		982ED128296437E10082B740 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED127296437E10082B740 /* RegisterViewModel.swift */; };
 		982ED12B296479390082B740 /* SwiftUITooltip in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED12A296479390082B740 /* SwiftUITooltip */; };
 		98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF5296016390025AA56 /* AuthViewModel.swift */; };
 		98BE3DF8296016780025AA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF7296016780025AA56 /* User.swift */; };
+		98D5D1B2296588FD00E43692 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5D1B1296588FD00E43692 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,12 +74,12 @@
 		982ED1192962DCB60082B740 /* UpdateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecipeView.swift; sourceTree = "<group>"; };
 		982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecipeViewModel.swift; sourceTree = "<group>"; };
 		982ED11D296419830082B740 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		982ED11F2964199B0082B740 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		982ED1212964202D0082B740 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		982ED1252964264C0082B740 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		982ED127296437E10082B740 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		98BE3DF5296016390025AA56 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		98BE3DF7296016780025AA56 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		98D5D1B1296588FD00E43692 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +124,7 @@
 				9805785D295C878100C8AA3B /* Models */,
 				41EB8B05295A8BF000542D66 /* fonts */,
 				41EB8AEC295A7C7800542D66 /* TastierApp.swift */,
+				98D5D1B1296588FD00E43692 /* Enums.swift */,
 				9805785B295C876600C8AA3B /* Views */,
 				41EB8AF0295A7C7A00542D66 /* Assets.xcassets */,
 				41EB8AFA295A80E300542D66 /* GoogleService-Info.plist */,
@@ -189,7 +190,6 @@
 				98BE3DF5296016390025AA56 /* AuthViewModel.swift */,
 				982ED11729629CE20082B740 /* PersonalRecipeViewModel.swift */,
 				982ED11B296332610082B740 /* UpdateRecipeViewModel.swift */,
-				982ED11F2964199B0082B740 /* ProfileViewModel.swift */,
 				982ED1252964264C0082B740 /* EditProfileViewModel.swift */,
 				982ED127296437E10082B740 /* RegisterViewModel.swift */,
 			);
@@ -305,11 +305,11 @@
 				982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */,
 				41EB8B04295A845300542D66 /* WelcomeView.swift in Sources */,
 				9805786C295DA1E600C8AA3B /* DetailViewModel.swift in Sources */,
-				982ED1202964199B0082B740 /* ProfileViewModel.swift in Sources */,
 				98057860295C87B300C8AA3B /* Recipe.swift in Sources */,
 				41EB8B11295A981A00542D66 /* LoginView.swift in Sources */,
 				982ED1222964202D0082B740 /* EditProfileView.swift in Sources */,
 				98057868295D5AF900C8AA3B /* RecipeViewModel.swift in Sources */,
+				98D5D1B2296588FD00E43692 /* Enums.swift in Sources */,
 				982ED128296437E10082B740 /* RegisterViewModel.swift in Sources */,
 				98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */,
 				982ED11629629BD50082B740 /* PersonalRecipeView.swift in Sources */,

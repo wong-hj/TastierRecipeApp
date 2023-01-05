@@ -3,7 +3,7 @@ import Foundation
 import Firebase
 
 class DetailViewModel: ObservableObject {
-    var recordId: String
+    @Published var recordId: String
     @Published var recipe: Recipe
 
     init(recordId: String) {
@@ -18,15 +18,15 @@ class DetailViewModel: ObservableObject {
 
         let docRef = db.collection("Recipe").document(recordId)
 
-        docRef.getDocument { (document, error) in
+        docRef.addSnapshotListener { (documentSnapshot, error) in
             guard error == nil else {
                 print(error?.localizedDescription ?? "")
                 return
             }
 
-            if let document = document, document.exists {
-                let documentId = document.documentID
-                let data = document.data()
+            if let documentSnapshot = documentSnapshot, documentSnapshot.exists {
+                let documentId = documentSnapshot.documentID
+                let data = documentSnapshot.data()
 
                 if let data = data {
 

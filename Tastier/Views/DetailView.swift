@@ -8,106 +8,95 @@ struct DetailView: View {
     @EnvironmentObject var dataManager: DetailViewModel
     @ObservedObject var viewModel: DetailViewModel
     
-    //var recordId: String
-    
     var body: some View {
         
-        GeometryReader { geo in
-            
-            let image = UIImage(named: "avocado")
-            let imageHeight = image!.size.height
-            let imageWidth = image!.size.width
-            //let width = geo.size.width
-            let height = geo.size.width * (imageHeight / imageWidth)
-            
-            let ingredients = viewModel.recipe.ingredient
-            let ingredientsArr = ingredients.components(separatedBy: ",")
-            
-            let steps = viewModel.recipe.step
-            let stepsArr = steps.components(separatedBy: ",")
-            
-            NavigationView {
-                ScrollView(showsIndicators: false) {
-                    ZStack(){
-                        VStack(alignment: .leading){
-                            WebImage(url: URL(string: viewModel.recipe.imageURL))
-                                .resizable()
-                                .frame(height: height)
-                                .scaledToFill()
-                                .aspectRatio(contentMode: .fit)
-                            //.frame(height: height)
-                                //.edgesIgnoringSafeArea(.all)
-                                .overlay(cardOverlay())
-                            
-                            
-                            VStack(alignment: .leading) {
-                                Section {
-                                    Text("Ingredients")
-                                        .font(.title)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.orange)
-                                        .padding(.bottom, 10)
+        let ingredients = viewModel.recipe.ingredient
+        let ingredientsArr = ingredients.components(separatedBy: ";")
+        
+        let steps = viewModel.recipe.step
+        let stepsArr = steps.components(separatedBy: ";")
+        
+        NavigationView {
+            ScrollView(showsIndicators: false) {
+                ZStack(){
+                    VStack(alignment: .leading){
+                        WebImage(url: URL(string: viewModel.recipe.imageURL))
+                            .resizable()
+                            .frame(height: 300)
+                            .aspectRatio(contentMode: .fit)
+                            .overlay(cardOverlay())
+                        
+                        
+                        VStack(alignment: .leading) {
+                            Section {
+                                Text("Ingredients")
+                                    .font(.title)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.orange)
+                                    .padding(.bottom, 10)
+                                
+                                ForEach(ingredientsArr, id: \.self) { item in
                                     
-                                    ForEach(ingredientsArr, id: \.self) { item in
-                                        Group{
-                                            
-                                            Text("• ").foregroundColor(.yellow).fontWeight(.bold).font(.title2) + Text(item)
-                                        }
-                                        .padding(.bottom, 1)
-                                        .listRowSeparator(.hidden)
+                                    let itemTrim = item.trimmingCharacters(in: .whitespacesAndNewlines)
+                                    
+                                    Group{
+                                        
+                                        Text("• ").foregroundColor(.yellow).fontWeight(.bold).font(.title2) + Text(itemTrim)
                                     }
-                                    
-                                    Text("")
-                                        .padding(.bottom, 5)
+                                    .padding(.bottom, 1)
+                                    .listRowSeparator(.hidden)
                                 }
                                 
-                                Section {
-                                    Text("Steps")
-                                        .font(.title)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.orange)
-                                        .padding(.bottom, 10)
-                                    
-                                    ForEach(stepsArr.indices, id: \.self) { index in
-                                        Group{
-                                            
-                                            Text("\(index + 1). ").foregroundColor(.yellow).fontWeight(.semibold) + Text(stepsArr[index].capitalized)
-                                        }
-                                        .padding(.bottom, 1)
-                                        .listRowSeparator(.hidden)
-                                    }
-                                    
-                                    Text("")
-                                        .padding(.bottom, 20)
-                                }
-                                
+                                Text("")
+                                    .padding(.bottom, 5)
                             }
-                            .padding()
-                            .offset(x:0, y:40)
-   
-                            Spacer()
+                            
+                            Section {
+                                Text("Directions")
+                                    .font(.title)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.orange)
+                                    .padding(.bottom, 10)
+                                
+                                ForEach(stepsArr.indices, id: \.self) { index in
+                                    
+                                    let stepTrim = stepsArr[index].trimmingCharacters(in: .whitespacesAndNewlines)
+                                    Text("Step \(index + 1)")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .padding(.bottom, 5)
+                                       
+                                    Text(stepTrim.capitalized)
+                                    
+                                    .padding(.bottom, 1)
+                                    .listRowSeparator(.hidden)
+                                }
+                                
+                                Text("")
+                                    .padding(.top, 100)
+                            }
                             
                         }
-                    
-                        
+                        .padding()
+                        .offset(x:0, y:40)
+
+                        Spacer()
                         
                     }
-                }
                 
-                .edgesIgnoringSafeArea(.all)
                     
-                //}
-                .navigationTitle("")
-                .navigationBarHidden(true)
-                
-                //.navigationBarBackButtonHidden(true)
-        
+                    
+                }
             }
+            .edgesIgnoringSafeArea(.all)
+//                .navigationTitle("")
+//                .navigationBarHidden(true)
+            
             //.navigationBarBackButtonHidden(true)
+    
         }
-        
-        
-        
+        //.navigationBarBackButtonHidden(true)
+    
     }
     
     

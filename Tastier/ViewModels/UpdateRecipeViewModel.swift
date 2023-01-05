@@ -4,7 +4,7 @@ import Firebase
 import FirebaseStorage
 
 class UpdateRecipeViewModel: ObservableObject {
-    var documentid: String
+    @Published var documentid: String
     @Published var recipe: Recipe
 
     init(documentid: String) {

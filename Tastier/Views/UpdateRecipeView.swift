@@ -11,12 +11,12 @@ struct UpdateRecipeView: View {
     @ObservedObject var dataManager: UpdateRecipeViewModel
   
     
-    @State var isPickerShowing = false
-    @State var selectedImage: UIImage?
-    @State var selectedDifficulty = "Hard"
-    @State var showAlert = false
-    @State var activeAlert = ""
-    @State var isNewImage = false
+    @State private var isPickerShowing = false
+    @State private var selectedImage: UIImage?
+    @State private var selectedDifficulty = "Hard"
+    @State private var showAlert = false
+    @State private var activeAlert = ""
+    @State private var isNewImage = false
     
     var body: some View {
         

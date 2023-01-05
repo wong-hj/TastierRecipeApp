@@ -6,8 +6,8 @@ struct ProfileView: View {
     
     @ObservedObject var dataManager = PersonalRecipeViewModel()
     @ObservedObject var auth = AuthViewModel()
-    @State var isShowSheet = false
-    @State var isLoggedOut = false
+    @State private var isShowSheet = false
+    @State private var isLoggedOut = false
     
 //    init(){
 //        auth.fetchCurrentUser()

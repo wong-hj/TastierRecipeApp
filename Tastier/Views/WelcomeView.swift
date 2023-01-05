@@ -2,8 +2,8 @@
 import SwiftUI
 import Firebase
 struct WelcomeView: View {
-    @State var isRegisterLinkActive = false
-    @State var isLoginLinkActive = false
+    @State private var isRegisterLinkActive = false
+    @State private var isLoginLinkActive = false
     
     var body: some View {
         NavigationView {
@@ -78,6 +78,7 @@ struct WelcomeView: View {
                 }
             }
         }
+        .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
     

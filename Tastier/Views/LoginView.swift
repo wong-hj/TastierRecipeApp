@@ -4,9 +4,11 @@ import Firebase
 
 struct LoginView: View {
   
-    @State var email = ""
-    @State var password = ""
-    @State var toContentView = false
+    @State private var email = ""
+    @State private var password = ""
+    @State private var toContentView = false
+    @State private var activeAlert: LoginAlert = .success
+    @State private var showAlert = false
     
     var body: some View {
         
@@ -62,7 +64,16 @@ struct LoginView: View {
             }
             
             Button(action: {
-                login()
+                if (email.isEmpty || password.isEmpty) {
+                    
+                    activeAlert = LoginAlert.empty
+                    
+                } else {
+                    
+                    login()
+                }
+                
+                showAlert = true
                 
             }, label: {
                 
@@ -78,6 +89,24 @@ struct LoginView: View {
                 .padding(.top, 10)
                 
             })
+            .alert(isPresented: $showAlert, content: {
+                // Present an alert if login is successful
+                switch activeAlert {
+                    case LoginAlert.empty:
+                        return Alert(title: Text("Error"), message: Text("Please fill in all fields."), dismissButton: .default(Text("OK")))
+                    
+                    case LoginAlert.success:
+                        return Alert(title: Text("Success"), message: Text("Successfully Login.\nWelcome to Tastier!"), dismissButton: .default(Text("OK")))
+                
+                    case LoginAlert.error:
+                        return Alert(title: Text("Error"), message: Text("Email or Password is incorrect."), dismissButton: .default(Text("OK")))
+                    
+                    
+
+                }
+                
+            })
+            
             
             
              //To Content View
@@ -97,10 +126,16 @@ struct LoginView: View {
     //login function
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
+            
+            if let error = error {
+                
+                activeAlert = LoginAlert.error
+                print(error.localizedDescription)
+                
             } else {
-                print("Success")
+                
+                activeAlert = LoginAlert.success
+                
                 toContentView = true
                 
             }
