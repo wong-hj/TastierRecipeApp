@@ -100,8 +100,6 @@ struct LoginView: View {
                 
                     case LoginAlert.error:
                         return Alert(title: Text("Error"), message: Text("Email or Password is incorrect."), dismissButton: .default(Text("OK")))
-                    
-                    
 
                 }
                 
@@ -127,15 +125,18 @@ struct LoginView: View {
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             
+            // if error
             if let error = error {
-                
+                //indicates error for alert
                 activeAlert = LoginAlert.error
+                //show error in console
                 print(error.localizedDescription)
                 
             } else {
-                
+                //indicates success for alert
                 activeAlert = LoginAlert.success
                 
+                //set toContentView boolean to true
                 toContentView = true
                 
             }

@@ -18,13 +18,18 @@ struct LandingView: View {
             VStack(alignment: .leading) {
                 ZStack {
                     VStack {
+                        //Orange background
                         Rectangle()
                             .fill(.orange)
                             .frame(height: 200)
                             .cornerRadius(20)
                             .edgesIgnoringSafeArea(.top)
+                        
+                        //Hortizontally arrange the available categories
                         HStack {
+                            //ForEach categories, execute the following code
                             ForEach (Categories.allCases, id: \.self) {icon in
+                                //Vertically show the category icon and the name
                                 VStack {
                                     NavigationLink(destination: RecipeView(category: .constant(icon.rawValue.capitalized))) {
                                     
@@ -46,7 +51,7 @@ struct LandingView: View {
                         .padding(.top, -40)
                         .padding(.bottom, 30)
                         
-                        VStack() {
+                        VStack {
                             Text("**Hot Recipes**")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.title)
@@ -95,11 +100,14 @@ struct LandingView: View {
                         Spacer()
                     }
                     
+                    //On top of the screen
                     Group {
                         VStack(alignment: .leading) {
+                            //Slogan
                             Text("***Finger Tastin' Good!***")
                                 .font(.largeTitle)
                                 .foregroundColor(.white)
+                            //Search bar
                             HStack {
                                 TextField("Search", text: $searchText)
                                     .autocapitalization(.none)
@@ -117,8 +125,10 @@ struct LandingView: View {
                         
                         if !searchText.isEmpty {
                             
+                            //Show list of search result
                             
-                            if dataManager.recipes.filter({$0.name.contains(searchText)}).count == 0 {
+                            //if filtered result return 0
+                            if dataManager.recipes.filter({$0.name.lowercased().contains(searchText.lowercased())}).count == 0 {
                                 
                                 List() {
                                     Text("No Results Found.")
@@ -128,8 +138,9 @@ struct LandingView: View {
                                 .offset(x:0, y: -90)
                                 
                             } else {
-                                List(dataManager.recipes.filter{$0.name.contains(searchText)}) { recipe in
+                                List(dataManager.recipes.filter{$0.name.lowercased().contains(searchText.lowercased())}) { recipe in
                                     
+                                    //show filtered recipes with images and name, click to navigate to detail view of the selected recipe
                                     NavigationLink(destination: DetailView(viewModel: DetailViewModel(recordId: recipe.docid))){
                                         HStack {
                                             WebImage(url: URL(string: recipe.imageURL))

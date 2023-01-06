@@ -1,6 +1,9 @@
 
 import SwiftUI
+
+
 import Firebase
+
 struct WelcomeView: View {
     @State private var isRegisterLinkActive = false
     @State private var isLoginLinkActive = false

@@ -16,9 +16,9 @@ struct DetailView: View {
         let steps = viewModel.recipe.step
         let stepsArr = steps.components(separatedBy: ";")
         
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                ZStack(){
+        //NavigationView {
+            ScrollView {
+                ZStack{
                     VStack(alignment: .leading){
                         WebImage(url: URL(string: viewModel.recipe.imageURL))
                             .resizable()
@@ -78,7 +78,7 @@ struct DetailView: View {
                             
                         }
                         .padding()
-                        .offset(x:0, y:40)
+                        .padding(.top, 60)
 
                         Spacer()
                         
@@ -89,13 +89,6 @@ struct DetailView: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
-//                .navigationTitle("")
-//                .navigationBarHidden(true)
-            
-            //.navigationBarBackButtonHidden(true)
-    
-        }
-        //.navigationBarBackButtonHidden(true)
     
     }
     

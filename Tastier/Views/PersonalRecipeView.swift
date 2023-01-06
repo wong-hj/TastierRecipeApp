@@ -5,6 +5,8 @@ import SDWebImageSwiftUI
 struct PersonalRecipeView: View {
     @ObservedObject var dataManager = PersonalRecipeViewModel()
     
+    @State private var deleteAlert = false
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -19,12 +21,15 @@ struct PersonalRecipeView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
+                // if there are recipes then create a list
                 if dataManager.recipes.count > 0 {
+                    
                     List {
-                        
+                        // For each recipe run the following code
                         ForEach(dataManager.recipes, id: \.id) { recipe in
                             
                             ZStack {
+                                //navigate to UpdateRecipeView if the list is clicked
                                 NavigationLink(destination: UpdateRecipeView(dataManager: UpdateRecipeViewModel(documentid: recipe.docid))) {
                                     EmptyView()
                                     
@@ -32,6 +37,7 @@ struct PersonalRecipeView: View {
                                 
                                 HStack{
                                     
+                                    //Show image and other relevant details
                                     WebImage(url: URL(string: recipe.imageURL))
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
@@ -83,15 +89,23 @@ struct PersonalRecipeView: View {
                                     }
                                 }
                                 .frame(height: 80)
+                                // if user left swipe
                                 .swipeActions(edge: .trailing) {
-                                    Button {
+                                    //action button to delete recipe and set deleteAlert boolean to true
+                                    Button(action: {
                                         dataManager.deleteRecipe(documentID: recipe.docid)
-                                    } label: {
+                                        deleteAlert = true
+                                    }, label: {
                                         Image(systemName: "trash")
-                                    }
+                                    })
                                     .tint(.red)
                                     
                                 }
+                                //alert to show delete success.
+                                .alert(isPresented: $deleteAlert, content: {
+                                    Alert(title: Text("Success"), message: Text("Recipe has been successfully deleted."), dismissButton: .default(Text("OK")))
+                                })
+
                             }
                         }
                     }
