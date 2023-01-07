@@ -54,6 +54,7 @@ class UpdateRecipeViewModel: ObservableObject {
     
     func updateRecipe(name: String, time: Int, rating: Double, difficulty: String, ingredient: String, step: String, category: String, selectedImage: UIImage?, docid: String) {
         
+        // store image in Firebase Storage if there is new image selected
         if selectedImage != nil {
             let storageRef = Storage.storage().reference()
             
@@ -76,8 +77,8 @@ class UpdateRecipeViewModel: ObservableObject {
                     
                     let db = Firestore.firestore()
                     let ref = db.collection("Recipe").document(docid)
-                    //let id = Int.random(in: 1..<10000)
                     
+                    //update the recipe
                     ref.setData(["name": name, "time": time, "rating": rating, "difficulty": difficulty, "ingredient": ingredient,
                                  "step": step, "category": category, "imageURL": url?.absoluteString ?? ""], merge: true) { error in
                         
@@ -94,7 +95,6 @@ class UpdateRecipeViewModel: ObservableObject {
             
             let db = Firestore.firestore()
             let ref = db.collection("Recipe").document(docid)
-            //let id = Int.random(in: 1..<10000)
             
             ref.setData(["name": name, "time": time, "rating": rating, "difficulty": difficulty, "ingredient": ingredient,
                          "step": step, "category": category], merge: true) { error in

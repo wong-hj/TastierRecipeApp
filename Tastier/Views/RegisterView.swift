@@ -164,30 +164,32 @@ struct RegisterView: View {
     
     func register() {
         
+        //Create a user with email and password, save in Firebase Auth
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             
+            //if there is error with sign up
             if let error = error {
-                
+                //set alert status to error
                 self.activeAlert = RegisterAlert.error
-                
+                //save error text to errorText
                 self.errorText = "\(error.localizedDescription)"
                 
                 
             } else {
-                
+                //set alert status to success
                 self.activeAlert = RegisterAlert.success
+                //set toContentView boolean to true for navigation
                 self.toContentView = true
                 
+                //get current user id
                 let uid = Auth.auth().currentUser?.uid
                 
+                //save data into Firestore
                 dataManager.addUser(email: email, uid: uid!, username: username)
                 
                 
             }
-            
-            
-            
-           
+
         }
     }
 }

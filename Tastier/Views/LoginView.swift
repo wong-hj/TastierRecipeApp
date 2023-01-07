@@ -123,6 +123,7 @@ struct LoginView: View {
     
     //login function
     func login() {
+        //Signin by checking the email and password in Firebase Auth
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             
             // if error

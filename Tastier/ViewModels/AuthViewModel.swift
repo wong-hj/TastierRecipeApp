@@ -65,11 +65,10 @@ class AuthViewModel: ObservableObject {
         do {
           try Auth.auth().signOut()
             
-            print("SUCCESSFULLLLLLL")
-            //let uid = ""
             listener.remove()
             
           // User is signed out.
+            
         } catch let error {
           // An error occurred while signing out.
             print("something went wrong, error: \(error)")

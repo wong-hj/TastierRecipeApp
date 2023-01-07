@@ -8,11 +8,7 @@ struct ProfileView: View {
     @ObservedObject var auth = AuthViewModel()
     @State private var isShowSheet = false
     @State private var isLoggedOut = false
-    
-//    init(){
-//        auth.fetchCurrentUser()
-//    }
-    
+ 
     init(){
         print("THIS IS RUN!")
     }
