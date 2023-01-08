@@ -131,7 +131,6 @@ struct RecipeView: View {
                                         
                                     }
                                     .background(Rectangle().fill(Color.white))
-                                    //.frame(height: 200)
                                     .cornerRadius(10)
                                     .shadow(radius: 4)
                                 }

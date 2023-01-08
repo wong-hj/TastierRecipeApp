@@ -9,10 +9,6 @@ struct ProfileView: View {
     @State private var isShowSheet = false
     @State private var isLoggedOut = false
  
-    init(){
-        print("THIS IS RUN!")
-    }
-    
     var body: some View {
         
         VStack{
@@ -26,6 +22,7 @@ struct ProfileView: View {
                 HStack {
                     Spacer()
                     
+                    // show pencil button and action after clicked
                    Button(action: {
                        // Code to execute when the button is tapped
                        isShowSheet.toggle()
@@ -38,12 +35,14 @@ struct ProfileView: View {
 
                    }
                     
+                    // navigate to EditProfileView()
                     NavigationLink(destination: EditProfileView(), isActive: $isShowSheet) {
                         Text("")
                     }
  
                 }
                 
+                // show user info
                 Image("user")
                     .font(.system(size: 0))
                     .padding()
@@ -74,6 +73,7 @@ struct ProfileView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
             
+            // show personal recipe list
             if dataManager.recipes.count > 0 {
                 List() {
                     ForEach(dataManager.recipes, id: \.id) { recipe in
@@ -105,6 +105,7 @@ struct ProfileView: View {
             
             HStack {
                 Spacer()
+                // logout button
                 Button(action: {
                     
                     auth.logout()
