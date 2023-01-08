@@ -20,9 +20,6 @@
 		41EB8B09295A8BFF00542D66 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41EB8B07295A8BFF00542D66 /* OFL.txt */; };
 		41EB8B0F295A911500542D66 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB8B0E295A911400542D66 /* RegisterView.swift */; };
 		41EB8B11295A981A00542D66 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB8B10295A981A00542D66 /* LoginView.swift */; };
-		98057860295C87B300C8AA3B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805785F295C87B300C8AA3B /* Recipe.swift */; };
-		98057862295C87BC00C8AA3B /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */; };
-		98057864295C882D00C8AA3B /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057863295C882D00C8AA3B /* AddRecipeView.swift */; };
 		98057866295D4FAE00C8AA3B /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057865295D4FAE00C8AA3B /* RecipeView.swift */; };
 		98057868295D5AF900C8AA3B /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057867295D5AF900C8AA3B /* RecipeViewModel.swift */; };
 		9805786A295DA0C600C8AA3B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98057869295DA0C600C8AA3B /* DetailView.swift */; };
@@ -41,6 +38,9 @@
 		982ED1262964264C0082B740 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED1252964264C0082B740 /* EditProfileViewModel.swift */; };
 		982ED128296437E10082B740 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ED127296437E10082B740 /* RegisterViewModel.swift */; };
 		982ED12B296479390082B740 /* SwiftUITooltip in Frameworks */ = {isa = PBXBuildFile; productRef = 982ED12A296479390082B740 /* SwiftUITooltip */; };
+		98305773296AF93D0050986E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98305772296AF93D0050986E /* Recipe.swift */; };
+		98305775296AF9650050986E /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98305774296AF9650050986E /* AddRecipeViewModel.swift */; };
+		98305777296AF9720050986E /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98305776296AF9720050986E /* AddRecipeView.swift */; };
 		98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF5296016390025AA56 /* AuthViewModel.swift */; };
 		98BE3DF8296016780025AA56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE3DF7296016780025AA56 /* User.swift */; };
 		98D5D1B2296588FD00E43692 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D5D1B1296588FD00E43692 /* Enums.swift */; };
@@ -60,9 +60,6 @@
 		41EB8B0B295A8EF900542D66 /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
 		41EB8B0E295A911400542D66 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		41EB8B10295A981A00542D66 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		9805785F295C87B300C8AA3B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = ../../../TastierRecipeApp_backup/Tastier/Models/Recipe.swift; sourceTree = "<group>"; };
-		98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRecipeViewModel.swift; path = ../../../TastierRecipeApp_backup/Tastier/ViewModels/AddRecipeViewModel.swift; sourceTree = "<group>"; };
-		98057863295C882D00C8AA3B /* AddRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRecipeView.swift; path = ../../../TastierRecipeApp_backup/Tastier/Views/AddRecipeView.swift; sourceTree = "<group>"; };
 		98057865295D4FAE00C8AA3B /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		98057867295D5AF900C8AA3B /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		98057869295DA0C600C8AA3B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -77,6 +74,9 @@
 		982ED1212964202D0082B740 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		982ED1252964264C0082B740 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		982ED127296437E10082B740 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		98305772296AF93D0050986E /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		98305774296AF9650050986E /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
+		98305776296AF9720050986E /* AddRecipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
 		98BE3DF5296016390025AA56 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		98BE3DF7296016780025AA56 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98D5D1B1296588FD00E43692 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		9805785B295C876600C8AA3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				98057863295C882D00C8AA3B /* AddRecipeView.swift */,
+				98305776296AF9720050986E /* AddRecipeView.swift */,
 				41EB8AEE295A7C7800542D66 /* ContentView.swift */,
 				41EB8B03295A845300542D66 /* WelcomeView.swift */,
 				41EB8B0E295A911400542D66 /* RegisterView.swift */,
@@ -175,7 +175,7 @@
 		9805785D295C878100C8AA3B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9805785F295C87B300C8AA3B /* Recipe.swift */,
+				98305772296AF93D0050986E /* Recipe.swift */,
 				98BE3DF7296016780025AA56 /* User.swift */,
 			);
 			path = Models;
@@ -184,7 +184,7 @@
 		9805785E295C878600C8AA3B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				98057861295C87BC00C8AA3B /* AddRecipeViewModel.swift */,
+				98305774296AF9650050986E /* AddRecipeViewModel.swift */,
 				98057867295D5AF900C8AA3B /* RecipeViewModel.swift */,
 				9805786B295DA1E600C8AA3B /* DetailViewModel.swift */,
 				98BE3DF5296016390025AA56 /* AuthViewModel.swift */,
@@ -292,8 +292,6 @@
 			files = (
 				98057866295D4FAE00C8AA3B /* RecipeView.swift in Sources */,
 				41EB8AEF295A7C7800542D66 /* ContentView.swift in Sources */,
-				98057862295C87BC00C8AA3B /* AddRecipeViewModel.swift in Sources */,
-				98057864295C882D00C8AA3B /* AddRecipeView.swift in Sources */,
 				982ED108296164930082B740 /* ImagePickerView.swift in Sources */,
 				982ED11C296332610082B740 /* UpdateRecipeViewModel.swift in Sources */,
 				982ED11829629CE20082B740 /* PersonalRecipeViewModel.swift in Sources */,
@@ -305,11 +303,13 @@
 				982ED11A2962DCB60082B740 /* UpdateRecipeView.swift in Sources */,
 				41EB8B04295A845300542D66 /* WelcomeView.swift in Sources */,
 				9805786C295DA1E600C8AA3B /* DetailViewModel.swift in Sources */,
-				98057860295C87B300C8AA3B /* Recipe.swift in Sources */,
 				41EB8B11295A981A00542D66 /* LoginView.swift in Sources */,
 				982ED1222964202D0082B740 /* EditProfileView.swift in Sources */,
 				98057868295D5AF900C8AA3B /* RecipeViewModel.swift in Sources */,
 				98D5D1B2296588FD00E43692 /* Enums.swift in Sources */,
+				98305773296AF93D0050986E /* Recipe.swift in Sources */,
+				98305775296AF9650050986E /* AddRecipeViewModel.swift in Sources */,
+				98305777296AF9720050986E /* AddRecipeView.swift in Sources */,
 				982ED128296437E10082B740 /* RegisterViewModel.swift in Sources */,
 				98BE3DF6296016390025AA56 /* AuthViewModel.swift in Sources */,
 				982ED11629629BD50082B740 /* PersonalRecipeView.swift in Sources */,
